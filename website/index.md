@@ -35,7 +35,7 @@ PRs or via public or private communication:
 * Mirek Kratochvíl ([@exaexa](https://github.com/exaexa))
 * Pedro Ojeda ([@pojeda](https://github.com/pojeda))
 * Samuel Omlin ([@omlins](https://github.com/omlins)) - CSCS / ETHZ
-* Ludovic Räss ([@luraess](https://github.com/luraess)) - ETHZ
+* Ludovic Räss ([@luraess](https://github.com/luraess)) - Unil / ETHZ
 * Michael Schlottke-Lakemper ([@sloede](https://github.com/sloede)) - HLRS / RWTH
 * Erik Schnetter ([@eschnett](https://github.com/eschnett)) - PITP
 * Dinindu Senanayake ([@DininduSenanayake](https://github.com/DininduSenanayake))
