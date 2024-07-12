@@ -4,6 +4,10 @@ title = "Julia On HPC Clusters"
 
 # Julia on HPC clusters
 
+@@im-10
+![JuliaHPC](/assets/juliahpc_logo.png)
+@@
+
 👋 Welcome to the notes about the [Julia programming language](http://www.julialang.org/) on HPC clusters.
 
 ## Objective
@@ -35,7 +39,7 @@ PRs or via public or private communication:
 * Mirek Kratochvíl ([@exaexa](https://github.com/exaexa))
 * Pedro Ojeda ([@pojeda](https://github.com/pojeda))
 * Samuel Omlin ([@omlins](https://github.com/omlins)) - CSCS / ETHZ
-* Ludovic Räss ([@luraess](https://github.com/luraess)) - ETHZ
+* Ludovic Räss ([@luraess](https://github.com/luraess)) - Unil / ETHZ
 * Michael Schlottke-Lakemper ([@sloede](https://github.com/sloede)) - HLRS / RWTH
 * Erik Schnetter ([@eschnett](https://github.com/eschnett)) - PITP
 * Dinindu Senanayake ([@DininduSenanayake](https://github.com/DininduSenanayake))
