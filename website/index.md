@@ -4,6 +4,10 @@ title = "Julia On HPC Clusters"
 
 # Julia on HPC clusters
 
+@@im-10
+![JuliaHPC](/assets/juliahpc_logo.png)
+@@
+
 👋 Welcome to the notes about the [Julia programming language](http://www.julialang.org/) on HPC clusters.
 
 ## Objective
