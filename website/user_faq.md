@@ -113,3 +113,9 @@ path or set an environment variable accordingly.
 Try setting `JULIA_CUDA_MEMORY_POOL=none` (see the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/usage/memory/#Memory-pool) for more information).
 
 [⤴ _**back to Content**_](#content)
+
+## Precompilation on a login node fails (`Resource temporarily unavailable`)
+
+By default, Julia uses many parallel tasks during precompilation. On the login nodes of some HPC clusters, parallel processes might be subject to resource restrictions. In these cases, you might want to set [`JULIA_NUM_PRECOMPILE_TASKS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_PRECOMPILE_TASKS) to a low value, e.g. `export JULIA_NUM_PRECOMPILE_TASKS=1` (single task).
+
+[⤴ _**back to Content**_](#content)
