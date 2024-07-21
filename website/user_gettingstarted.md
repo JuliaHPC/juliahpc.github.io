@@ -48,7 +48,7 @@ You want to choose a file system with the following properties
 
 ## Set `JULIA_CPU_TARGET` appropriately.
 
-On many clusters, the sections above are all you need to get a solid Julia setup. However, if your on a **heterogeneous HPC cluster**, that is, if different nodes have different CPU (micro-)architectures, you should/need to do a few more preparations. Otherwise, you might encounter nasty error messages like "`Illegal instruction`".
+On many clusters, the sections above are all you need to get a solid Julia setup. However, if you're on a **heterogeneous HPC cluster**, that is, if different nodes have different CPU (micro-)architectures, you should/need to do a few more preparations. Otherwise, you might encounter nasty error messages like "`Illegal instruction`".
 
 To make Julia produce efficient code that works on different CPUs, you need to set [`JULIA_CPU_TARGET`](https://docs.julialang.org/en/v1.10-dev/manual/environment-variables/#JULIA_CPU_TARGET). For example, if you want Julia to compile all functions (`clone_all`) for Intel Skylake (`skylake-avx512`), AMD Zen 2 (`znver2`), and a generic fallback (`generic`), for safety, you could put the following into your `.bashrc`:
 
