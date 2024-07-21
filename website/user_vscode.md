@@ -128,6 +128,8 @@ Microsoft provides ["Remote tunnels"](https://code.visualstudio.com/docs/remote/
 * Requires a GitHub / Microsoft account.
 * Microsoft serves as the tunnel provider (man in the middle).
 
+**How to do it?**
+
 1. Download the VS Code command line interface from [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download) (search for **CLI**).
 
 2. Copy the single `code` binary to the cluster (and put the directory on `PATH`).

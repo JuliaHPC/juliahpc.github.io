@@ -19,24 +19,41 @@ Getting started with Julia on a new cluster can sometimes be a challenge. Below 
 
 ---
 
-## Julia binaries or Julia module
+## Use the regular Julia binaries or a Julia module (if available)
 
 When starting on a new HPC cluster the first thing you should do is figure out if there is a pre-configured Julia module ([Lmod module](https://lmod.readthedocs.io/en/latest/010_user.html)) available on the cluster. To that end, `module key julia` or `module spider julia` might be helpful commands.
 
-If there isn't a Julia module available that you can load, you should use the regular, pre-built Julia binaries. You can either download (e.g. `wget` or `curl`) them directly [from the website](https://julialang.org/downloads/) or use [juliaup](https://github.com/JuliaLang/juliaup). In any case, you should **not** build Julia from source (unless you have a very good reason and know that you're doing).
+If there is no Julia module available that you can load, you should download and use the regular, precompiled Julia binaries. We strongly recommend to use [juliaup](https://github.com/JuliaLang/juliaup) for this. Alternatively, you can also manually download the binaries directly [from the website](https://julialang.org/downloads/).
+
+In any case, you should generally **not** build Julia from source (unless you have a very good reason).
 
 [⤴ _**back to Content**_](#content)
 
-## Placing the Julia depot
+## Place the Julia depot on the parallel file system.
 
-One you have `julia`, you must make sure that the Julia depot is placed on an appropriate file system. By default, it will be stored in `$HOME/.julia`. This may or may not be a good choice. What you want is a place on a file system with the following properties
+One you have Julia installed and you can run `julia` from the command line, you should place the Julia depot - the `.julia` folder where Julia stores all dependencies, logs, etc. - on an appropriate file system. By default, it will be stored in `$HOME/.julia`. This may or may not be a good choice, but more often than not it isn't.
+
+You want to choose a file system with the following properties
 * no tight quotas (at least >= 20 GB)
 * read and write access (ideally also from compute nodes)
 * good (parallel) I/O
 * no automatic deletion of unused files (or otherwise you have to find a workaround)
 
-Often times these criterion are best fit on a parallel file system (often `$SCRATCH`). For this reason it might be necessary to set `JULIA_DEPOT_PATH=$SCRATCH/.julia`.
+**On most clusters these criterion are best fit on a parallel file system (often `$SCRATCH`).** In this case, you should put `JULIA_DEPOT_PATH=$SCRATCH/.julia` into your `.bashrc`.
 
-Note that if the last point (automatic deletion of unused files) is an issue for you, a pragmatic workaround could be a cronjob that touches all files in the Julia depot every once in a while.
+**Note:** If the last point (automatic deletion of unused files) is an issue for you, a pragmatic workaround could be a cronjob that touches all files in the Julia depot every once in a while.
+
+[⤴ _**back to Content**_](#content)
+
+
+## Set `JULIA_CPU_TARGET` appropriately.
+
+On many clusters, the sections above are all you need to get a solid Julia setup. However, if your on a **heterogeneous HPC cluster**, that is, if different nodes have different CPU (micro-)architectures, you should/need to do a few more preparations. Otherwise, you might encounter nasty error messages like "`Illegal instruction`".
+
+To make Julia produce efficient code that works on different CPUs, you need to set [`JULIA_CPU_TARGET`](https://docs.julialang.org/en/v1.10-dev/manual/environment-variables/#JULIA_CPU_TARGET). For example, if you want Julia to compile all functions (`clone_all`) for Intel Skylake (`skylake-avx512`), AMD Zen 2 (`znver2`), and a generic fallback (`generic`), for safety, you could put the following into your `.bashrc`:
+
+`export JULIA_CPU_TARGET="generic;skylake-avx512,clone_all;znver2,clone_all"`.
+
+For more information, see [this section of the Julia documentation](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_TARGET) and [this section of the developer documentation](https://docs.julialang.org/en/v1/devdocs/sysimg/#Specifying-multiple-system-image-targets).
 
 [⤴ _**back to Content**_](#content)

@@ -50,6 +50,8 @@ Set [`JULIA_CPU_TARGET`](https://docs.julialang.org/en/v1.10-dev/manual/environm
 
 This compiles all functions (`clone_all`) for Intel Skylake (`skylake-avx512`), AMD Zen 2 (`znver2`), and a generic fallback (`generic`).
 
+For more information, see [this section of the Julia documentation](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_TARGET) and [this section of the developer documentation](https://docs.julialang.org/en/v1/devdocs/sysimg/#Specifying-multiple-system-image-targets).
+
 [⤴ _**back to Content**_](#content)
 
 ## Should I use Distributed.jl or MPI.jl for large-scale parallelism?
@@ -117,5 +119,11 @@ Try setting `JULIA_CUDA_MEMORY_POOL=none` (see the [CUDA.jl documentation](https
 ## Precompilation on a login node fails (`Resource temporarily unavailable`)
 
 By default, Julia uses many parallel tasks during precompilation. On the login nodes of some HPC clusters, parallel processes might be subject to resource restrictions. In these cases, you might want to set [`JULIA_NUM_PRECOMPILE_TASKS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_PRECOMPILE_TASKS) to a low value, e.g. `export JULIA_NUM_PRECOMPILE_TASKS=1` (single task).
+
+[⤴ _**back to Content**_](#content)
+
+## Can I precompile GPU code on a login node without a GPU?
+
+Yes, at least for CUDA.jl. See [this part](https://cuda.juliagpu.org/stable/installation/overview/#Precompiling-CUDA.jl-without-CUDA) of the CUDA.jl documentation.
 
 [⤴ _**back to Content**_](#content)
