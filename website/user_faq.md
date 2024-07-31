@@ -15,6 +15,10 @@ noeval = true
 
 ---
 
+## Julia isn't available on my cluster. Can I install and use it (without root privileges)?
+
+Yes, absolutely. You **do not** need root privileges to install Julia and its packages. However, often times it's better to put the Julia depot - the place where packages, artifacts, and other things will be stored - on the parallel file system rather than into `$HOME`. See the [Getting Started](/user_gettingstarted/) section for more information.
+
 ## Should I compile Julia from source?
 
 **No, you should not.** Use the pre-built binaries from the website or, preferably, a corresponding Lmod module provided by the cluster admins. Compiling Julia from source will generally **not** improve the performance of your code (Julia is a compiler in itself) but may very well be cumbersome. Unless you know what you're doing and have a very good reason (e.g. creating a debug build with flags like `USE_INTEL_JITEVENTS=1`) you should not compile Julia yourself.
@@ -44,7 +48,7 @@ Note that you can use the slim `mpiexecjl` wrapper from `MPI.jl` to use the "cor
 
 ## How can I force Julia to compile code for a heterogeneous cluster?
 
-Set [`JULIA_CPU_TARGET`](https://docs.julialang.org/en/v1.10-dev/manual/environment-variables/#JULIA_CPU_TARGET) to a value that is generic enough to cover all the types of CPUs that you're targeting.
+Set [`JULIA_CPU_TARGET`](https://docs.julialang.org/en/v1.10-dev/manual/environment-variables/#JULIA_CPU_TARGET) to a value that is generic enough to cover all the types of CPUs that you're targeting. You can get the CPU target name for the current system with `Sys.CPU_NAME`.
 
 **Example:** `JULIA_CPU_TARGET="generic;skylake-avx512,clone_all;znver2,clone_all"`.
 
