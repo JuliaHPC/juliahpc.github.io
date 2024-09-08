@@ -39,7 +39,7 @@ You want to choose a file system with the following properties
 * good (parallel) I/O
 * no automatic deletion of unused files (or otherwise you have to find a workaround)
 
-**On most clusters these criterion are best fit on a parallel file system (often `$SCRATCH`).** In this case, you should put `JULIA_DEPOT_PATH=$SCRATCH/.julia` into your `.bashrc`.
+**On most clusters these criterion are best fit on a parallel file system (often `$SCRATCH`).** In this case, you should put `JULIA_DEPOT_PATH=$SCRATCH/.julia` into your `.bashrc` (and your job scripts if `.bashrc` is not loaded by non-interactive jobs).
 
 **Note:** If the last point (automatic deletion of unused files) is an issue for you, a pragmatic workaround could be a cronjob that touches all files in the Julia depot every once in a while.
 
@@ -54,6 +54,6 @@ To make Julia produce efficient code that works on different CPUs, you need to s
 
 `export JULIA_CPU_TARGET="generic;skylake-avx512,clone_all;znver2,clone_all"`.
 
-You can get the CPU target name for the current system with `Sys.CPU_NAME`. For more information, see [this section of the Julia documentation](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_TARGET) and [this section of the developer documentation](https://docs.julialang.org/en/v1/devdocs/sysimg/#Specifying-multiple-system-image-targets).
+Also include this line in your job scripts if `.bashrc` is not loaded by non-interactive jobs. You can get the CPU target name for the current system with `Sys.CPU_NAME`. For more information, see [this section of the Julia documentation](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_TARGET) and [this section of the developer documentation](https://docs.julialang.org/en/v1/devdocs/sysimg/#Specifying-multiple-system-image-targets).
 
 [⤴ _**back to Content**_](#content)
