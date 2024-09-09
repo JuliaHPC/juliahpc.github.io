@@ -39,7 +39,7 @@ You want to choose a file system with the following properties
 * good (parallel) I/O
 * no automatic deletion of unused files (or otherwise you have to find a workaround)
 
-**On most clusters these criterion are best fit on a parallel file system (often `$SCRATCH`).** In this case, you should put `JULIA_DEPOT_PATH=$SCRATCH/.julia` into your `.bashrc`.
+**On most clusters these criterion are best fit on a parallel file system (often `$SCRATCH`).** In this case, you should put `JULIA_DEPOT_PATH=$SCRATCH/.julia` into your `.bashrc` (and your job scripts if `.bashrc` is not loaded by non-interactive jobs).
 
 **Note:** If the last point (automatic deletion of unused files) is an issue for you, a pragmatic workaround could be a cronjob that touches all files in the Julia depot every once in a while.
 
