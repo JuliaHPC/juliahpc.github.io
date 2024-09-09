@@ -132,12 +132,6 @@ By default, Julia uses many parallel tasks during precompilation. On the login n
 
 [⤴ _**back to Content**_](#content)
 
-## Julia crashes on startup on a login node
-
-Related to the previous question, if the login node forbids using more than a certain number of threads, it could cause Julia's dependent `C`/`C++` libraries to fail to load. In these cases, you might want to set [`OMP_NUM_THREADS`](https://www.openmp.org/spec-html/5.0/openmpse50.html) to a low value, e.g. `export OMP_NUM_THREADS=1`.
-
-[⤴ _**back to Content**_](#content)
-
 ## Can I precompile GPU code on a login node without a GPU?
 
 Yes, at least for CUDA.jl. See [this part](https://cuda.juliagpu.org/stable/installation/overview/#Precompiling-CUDA.jl-without-CUDA) of the CUDA.jl documentation.
