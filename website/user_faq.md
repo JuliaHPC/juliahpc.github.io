@@ -114,7 +114,7 @@ path or set an environment variable accordingly.
 
 [⤴ _**back to Content**_](#content)
 
-## Julia unexpected killed for exceeding the requested memory limit
+## Julia unexpectedly killed for exceeding the requested memory limit
 
 If a job has non-exclusive access to a node and has a memory limit that is lower than the total memory of the node, set the `--heap-size-hint` command line option to an appropriate value when starting Julia in the job script, e.g. `julia --heap-size-hint=4G my_script.jl` if you have requested a memory limit of 4G for running `my_script.jl`. This communicates the memory limit to Julia's garbage collector to enable more aggressive garbage collection when the memory limit is approached.
 
