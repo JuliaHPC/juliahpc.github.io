@@ -50,10 +50,10 @@ You want to choose a file system with the following properties
 
 On many clusters, the sections above are all you need to get a solid Julia setup. However, if you're on a **heterogeneous HPC cluster**, that is, if different nodes have different CPU (micro-)architectures, you should/need to do a few more preparations. Otherwise, you might encounter nasty error messages like "`Illegal instruction`".
 
-To make Julia produce efficient code that works on different CPUs, you need to set [`JULIA_CPU_TARGET`](https://docs.julialang.org/en/v1.10-dev/manual/environment-variables/#JULIA_CPU_TARGET). For example, if you want Julia to compile all functions (`clone_all`) for Intel Skylake (`skylake-avx512`), AMD Zen 2 (`znver2`), and a generic fallback (`generic`), for safety, you could put the following into your `.bashrc`:
+To make Julia produce efficient code that works on different CPUs, you need to set [`JULIA_CPU_TARGET`](https://docs.julialang.org/en/v1.10-dev/manual/environment-variables/#JULIA_CPU_TARGET). For example, if you want Julia to compile all functions (`clone_all`) for Intel Skylake (`skylake-avx512`), AMD Zen 2 (`znver2`), and a generic fallback (`generic`), for safety, you could put the following into your `.bashrc` (also in your job script if the job includes precompilation, which is usually NOT recommended):
 
 `export JULIA_CPU_TARGET="generic;skylake-avx512,clone_all;znver2,clone_all"`.
 
-Also include this line in your job scripts if `.bashrc` is not loaded by non-interactive jobs. You can get the CPU target name for the current system with `Sys.CPU_NAME`. For more information, see [this section of the Julia documentation](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_TARGET) and [this section of the developer documentation](https://docs.julialang.org/en/v1/devdocs/sysimg/#Specifying-multiple-system-image-targets).
+You can get the CPU target name for the current system with `Sys.CPU_NAME`. For more information, see [this section of the Julia documentation](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_TARGET) and [this section of the developer documentation](https://docs.julialang.org/en/v1/devdocs/sysimg/#Specifying-multiple-system-image-targets).
 
 [⤴ _**back to Content**_](#content)
