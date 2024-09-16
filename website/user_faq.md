@@ -25,6 +25,12 @@ Yes, absolutely. You **do not** need root privileges to install Julia and its pa
 
 [⤴ _**back to Content**_](#content)
 
+## Julia installed from juliaup not found in a non-interactive job
+
+The installation path of the `julia` executable will be added to your `~/.bashrc` by [juliaup](https://github.com/JuliaLang/juliaup). If the job scheduler does not load `.bashrc` in non-interactive jobs, you can find out the installation path by starting the Julia REPL and type `Sys.BINDIR`.
+
+[⤴ _**back to Content**_](#content)
+
 ## Where should I put the Julia depot?
 
 Ideally, you should set `JULIA_DEPOT_PATH` to point to a place with the following properties:
