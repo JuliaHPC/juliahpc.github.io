@@ -23,7 +23,7 @@ Getting started with Julia on a new cluster can sometimes be a challenge. Below 
 
 When starting on a new HPC cluster the first thing you should do is figure out if there is a pre-configured Julia module ([Lmod module](https://lmod.readthedocs.io/en/latest/010_user.html)) available on the cluster. To that end, `module key julia` or `module spider julia` might be helpful commands.
 
-If there is no Julia module available that you can load, you should download and use the regular, precompiled Julia binaries. We strongly recommend to use [juliaup](https://github.com/JuliaLang/juliaup) for this. Alternatively, you can also manually download the binaries directly [from the website](https://julialang.org/downloads/). In any case, you should generally **not** build Julia from source (unless you have a very good reason).
+If there is no Julia module available that you can load, you should download and use the regular, precompiled Julia binaries. We strongly recommend to use [juliaup](https://github.com/JuliaLang/juliaup) for this. The installation path of the `julia` executable will be added to your `~/.bashrc` by `juliaup`. If the job scheduler does not load `.bashrc` in non-interactive jobs, you can find out the installation path by starting the Julia REPL and type `Sys.BINDIR`.  Alternatively, you can also manually download the binaries directly [from the website](https://julialang.org/downloads/). In any case, you should generally **not** build Julia from source (unless you have a very good reason).
 
 Note that you **do not** need root privileges. Julia, and its packages, works great without special permissions in user space.
 
