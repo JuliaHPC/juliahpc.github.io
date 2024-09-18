@@ -23,15 +23,15 @@ Getting started with Julia on a new cluster can sometimes be a challenge. Below 
 
 When starting on a new HPC cluster the first thing you should do is figure out if there is a pre-configured Julia module ([Lmod module](https://lmod.readthedocs.io/en/latest/010_user.html)) available on the cluster. To that end, `module key julia` or `module spider julia` might be helpful commands.
 
-If there is no Julia module available that you can load, you should download and use the regular, precompiled Julia binaries. We strongly recommend to use [juliaup](https://github.com/JuliaLang/juliaup) for this. Alternatively, you can also manually download the binaries directly [from the website](https://julialang.org/downloads/). In any case, you should generally **not** build Julia from source (unless you have a very good reason).
+If there is no Julia module available that you can load, you should download and use the regular, precompiled Julia binaries. We strongly recommend to use [Juliaup](https://github.com/JuliaLang/juliaup) for this and to install the latter using [JUHPC](https://github.com/JuliaParallel/JUHPC). JUHPC creates an HPC setup for Juliaup, Julia and some HPC key packages that require system libraries (MPI.jl, CUDA.jl, AMDGPU.jl, HDF5.jl, ADIOS2.jl, ...). Alternatively, you can also manually download the binaries directly [from the website](https://julialang.org/downloads/). In any case, you should generally **not** build Julia from source (unless you have a very good reason).
 
-Note that you **do not** need root privileges. Julia, and its packages, works great without special permissions in user space.
+Note that you **do not** need root privileges. Julia, and its packages, works great without special permissions in user space. Once you have Julia installed and you can run `julia` from the command line.
 
 [⤴ _**back to Content**_](#content)
 
 ## Place the Julia depot on the parallel file system.
 
-One you have Julia installed and you can run `julia` from the command line, you should place the Julia depot - the `.julia` folder where Julia stores all dependencies, logs, etc. - on an appropriate file system. By default, it will be stored in `$HOME/.julia`. This may or may not be a good choice, but more often than not it isn't.
+You should place the Julia depot - the `.julia` folder where Julia stores all dependencies, logs, etc. - on an appropriate file system. By default, it will be stored in `$HOME/.julia`. This may or may not be a good choice, but more often than not it isn't. If you use JUHPC, the depot will automatically be placed in a subfolder of the Juliaup installation folder and the following recommendations apply simply for choosing the Juliaup installation folder.
 
 You want to choose a file system with the following properties
 * no tight quotas (at least >= 20 GB)
@@ -55,5 +55,7 @@ To make Julia produce efficient code that works on different CPUs, you need to s
 `export JULIA_CPU_TARGET="generic;skylake-avx512,clone_all;znver2,clone_all"`.
 
 You can get the CPU target name for the current system with `Sys.CPU_NAME`. For more information, see [this section of the Julia documentation](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_TARGET) and [this section of the developer documentation](https://docs.julialang.org/en/v1/devdocs/sysimg/#Specifying-multiple-system-image-targets).
+
+Alternatively, you can create a different Julia HPC setup for each architecture available; JUHPC allows you to easily create Julia HPC setups that can live alongside each other without causing conflicts.
 
 [⤴ _**back to Content**_](#content)
