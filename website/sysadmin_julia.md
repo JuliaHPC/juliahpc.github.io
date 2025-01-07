@@ -154,5 +154,6 @@ At PC2 such a script is provided for every Julia version / Julia module (see [Ju
 * [JuliaHPC_Installer](https://git.uni-paderborn.de/pc2-public/juliahpc_installer) by [Carsten Bauer](https://carstenbauer.eu): a Julia script that automates the installation of a new Julia version via easybuild, including the global `Project.toml` setup discussed above. It is used on [Noctua 2](https://pc2.uni-paderborn.de/hpc-services/available-systems/noctua2) at [PC2](https://pc2.uni-paderborn.de/). However, it is currently not portable out of the box (since e.g. paths are hardcoded).
 * [Johannes Blaschke](https://github.com/jblaschke) provides [scripts and templates](https://gitlab.blaschke.science/nersc/julia/-/tree/main/modulefiles) to set up modules file for Julia on some of NERSC's systems (warning: potentially outdated?)
 * [Samuel Omlin](https://github.com/omlins) and colleagues from CSCS provide their [Easybuild configuration files](https://github.com/eth-cscs/production/tree/master/easybuild/easyconfigs/j/Julia) used for Piz Daint (warning: potentially outdated?)
+* [csc-env-julia](https://github.com/CSCfi/csc-env-julia) provides Ansible playbooks for installing Julia enviroment on CSC's HPC clusters.
 
 [⤴ _**back to Content**_](#content)
