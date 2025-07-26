@@ -1,0 +1,4 @@
+name = "JuliaHPC"
+uuid = "785f4173-1021-4a9f-a8d5-3f9e0cca329a"
+authors = ["JamesWrigley <james@puiterwijk.org>"]
+version = "0.1.0"
