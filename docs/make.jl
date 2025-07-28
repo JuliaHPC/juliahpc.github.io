@@ -26,14 +26,11 @@ Documenter.makedocs(
 # Helper function stolen from DynamicalSystemsDocs.jl
 function multidocref(package, descr = "")
     name = "$(package).jl"
-    if !isempty(descr)
-        name *= " - $(descr)"
-    end
 
     MultiDocumenter.MultiDocRef(;
         upstream = joinpath(clonedir, package),
         path = lowercase(package),
-        name,
+        name = isempty(descr) ? "$(name)" : "$(name) - $(descr)",
         giturl = "https://github.com/JuliaParallel/$(name).git",
     )
 end
