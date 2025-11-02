@@ -8,7 +8,7 @@ noeval = true
 
 # HPC systems with Julia support
 
-\note{It is difficult to keep the table below up-to-date. It is also almost certainly incomplete. We rely on people like you, so please [update the table](https://github.com/JuliaHPC/JuliaOnHPCClusters/edit/main/website/user_hpcsystems.md) if you think something can be improved!}
+\note{It is difficult to keep the table below up-to-date. It is also almost certainly incomplete. We rely on people like you, so please [update the table](https://github.com/JuliaHPC/juliahpc.github.io/edit/main/website/user_hpcsystems.md) if you think something can be improved!}
 
 ---
 
